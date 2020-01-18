@@ -1,6 +1,6 @@
 Name:           perl-Storable
-Version:        2.39
-Release:        2%{?dist}
+Version:        2.45
+Release:        3%{?dist}
 Summary:        Persistence for Perl data structures
 License:        GPL+ or Artistic
 Group:          Development/Libraries
@@ -32,10 +32,10 @@ BuildRequires:  perl(strict)
 # Data::Dump not used
 # Data::Dumper not used
 BuildRequires:  perl(B::Deparse) >= 0.61
+BuildRequires:  perl(Digest::MD5)
 BuildRequires:  perl(File::Spec) >= 0.8
 BuildRequires:  perl(Hash::Util)
 BuildRequires:  perl(Tie::Hash)
-# MD5 is deprecated and not packaged, do not require it
 Requires:       perl(:MODULE_COMPAT_%(eval "`perl -V:version`"; echo $version))
 # Carp substitutes missing Log::Agent
 Requires:       perl(Carp)
@@ -79,6 +79,15 @@ make test
 %{_mandir}/man3/*
 
 %changelog
+* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 2.45-3
+- Mass rebuild 2014-01-24
+
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 2.45-2
+- Mass rebuild 2013-12-27
+
+* Mon Jul 15 2013 Petr Pisar <ppisar@redhat.com> - 2.45-1
+- 2.45 bump
+
 * Tue Jun 11 2013 Petr Pisar <ppisar@redhat.com> - 2.39-2
 - Do not export private libraries
 
